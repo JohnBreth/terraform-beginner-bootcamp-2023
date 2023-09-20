@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "CyberInsightLab"
+
+    workspaces {
+      name = "terra-house-cyberinsight"
+    }
+  }
   required_providers {
     random = {
       source = "hashicorp/random"
