@@ -218,3 +218,19 @@ These files contain sensative information. If you lose this information you will
 ### Terraform Directory
 
 `.terraform` directory contains binaries of Terraform providers. This directory is not backup up and sent to the VCS (see `.gitignore`)
+
+## Issues with Terraform Cloud and Gitpod
+
+When attempting to run `terraform login` it opens a `wisiwig` and you must exit out of it. You can then copy the URL address presented to generate the token and enter it in the CLI where prompted.
+
+# Git Save Work and Transfer to Other Branch
+
+In branch you have been working run:
+
+```sh
+git fetch
+git add .
+git stash save
+git checkout "name of branch you want to move saved dated into"
+git stash apply
+```
