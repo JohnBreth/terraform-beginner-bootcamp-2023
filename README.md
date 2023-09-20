@@ -197,6 +197,10 @@ We can output this changeset by running `terraform plan`
 
 `terraform apply` will run a plan and pass the changeset to be executed by Terraform. This will prompt for approval, if we would like to auto-approve we can run `terraform apply --auto-aprove`
 
+### Terraform Destroy
+
+`terraform destroy` will delete resources.
+
 ### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked file that maintains the current versioning of the modules and providers that should be used in this project.
