@@ -167,3 +167,50 @@ If it is successful, you will get a json payload that looks like this:
 ```
 
 We'll need to generate AWS credentials in order to use the AWS CLI. Can also enable MFA for the account.
+
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform sources their providers and modules from the Terraform Registry [registry.terraform.io](https://registry.terraform.io/)
+
+- Providers are interfaces to API's that allow you to create interfaces in Terraform
+- Modules are templates of Terraform configurations that shareable, resusuable, and portable.
+
+[Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/)
+
+### Terraform Console
+
+We can see all of the Terraform commands available by typing `terraform`
+
+### Terraform Init
+
+At the start of a Terraform project we will run `terraform init` to download the binaries used for the providers in the Terraform project.
+
+### Terraform Plan
+
+This will generate out a changeset for our current infrastructure state and what will be changed.
+
+We can output this changeset by running `terraform plan`
+
+### Terraform Apply
+
+`terraform apply` will run a plan and pass the changeset to be executed by Terraform. This will prompt for approval, if we would like to auto-approve we can run `terraform apply --auto-aprove`
+
+### Terraform Lock Files
+
+`.terraform.lock.hcl` contains the locked file that maintains the current versioning of the modules and providers that should be used in this project.
+
+This file should be backed up to the Version Controls System (VCS) .ie Github
+
+### Terraform State Files
+
+`.terraform.tfstate` contains information about the current state of your infrastructure.
+
+This file **should not be commited** to your VCS. There is also a `.backup` file which contains the last previous state. **This should also not be commited to your VCS.**
+
+These files contain sensative information. If you lose this information you will lose knowing the state of your infrastructure.
+
+### Terraform Directory
+
+`.terraform` directory contains binaries of Terraform providers. This directory is not backup up and sent to the VCS (see `.gitignore`)
