@@ -221,7 +221,31 @@ These files contain sensative information. If you lose this information you will
 
 ## Issues with Terraform Cloud and Gitpod
 
-When attempting to run `terraform login` it opens a `wisiwig` and you must exit out of it. You can then copy the URL address presented to generate the token and enter it in the CLI where prompted.
+When attempting to run terraform login it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
+
+The workaround is manually generate a token in Terraform Cloud
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+Then create the file manually here:
+
+```
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Provide the following code (replace your token in the file):
+
+```
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
+    }
+  }
+}
+```
+We have automated this workaround with the following bash script `bin/generate_tfrc_credentials`
 
 # Git Save Work and Transfer to Other Branch
 
