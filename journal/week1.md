@@ -7,9 +7,9 @@ Our root module structure is as follows:
 ```
   - PROJECT_ROOT
   |
-  ├── variables.tf            # stores structure of input variables
-  |
   ├── main.tf                 # everything else
+  |
+  ├── variables.tf            # stores structure of input variables
   |
   ├── providers.tf            # defines required providers and their configuration
   |
