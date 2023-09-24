@@ -4,6 +4,7 @@
 
 Our root module structure is as follows:
 
+```
   - PROJECT_ROOT
   |
   ├── variables.tf            # stores structure of input variables
@@ -17,5 +18,6 @@ Our root module structure is as follows:
   ├── terraform.tfvars        # data of variables we want to load in our Terraform project
   |
   └── README.md               # required for root modules
+```
 
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
