@@ -2,3 +2,4 @@ user_uuid="0d8da7eb-48e2-4cf4-8159-b38beecca0bc"
 bucket_name = "cyberinsight-terraform-bootcamp"
 index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
+content_version=2
