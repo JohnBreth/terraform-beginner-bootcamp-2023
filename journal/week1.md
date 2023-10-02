@@ -66,13 +66,13 @@ We can use the `-var` flag to set an input variable or override a variable in th
 
 ### var-file flag
 
-- TODO: Document
+We can use the -var-file flag to provide variable values from an external file. `terraform apply -var-file=variables.tfvars`
 
 ### Terraform tfvars
 
 This is the default file to load in terraform variables in bulk.
 
-### auto-tfvars
+### auto.tfvars
 
 - TODO: Document
 
