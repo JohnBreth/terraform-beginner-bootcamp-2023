@@ -38,3 +38,15 @@ provider "terratowns" {
 #   assets_path=var.assets_path
 #   content_version = var.content_version
 # }
+
+resource "terratowns_home" "home" {
+  name = "Terraform For Beginners Bootcamp Infographics"
+  description = <<DESCRIPTION
+Here are some infographics that helped me understand some of the concepts 
+related to the topics covered in this bootcamp
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "cooker-cove"
+  content_version = 1
+}
