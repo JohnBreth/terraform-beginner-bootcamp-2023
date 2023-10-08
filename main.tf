@@ -14,12 +14,12 @@ required_providers {
   #    name = "terra-house-1"
   #  }
   #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  cloud {
+   organization = "CyberInsightLab"
+   workspaces {
+     name = "terra-house-cyberinsight"
+   }
+  }
 
 }
 
@@ -29,14 +29,12 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
+module "home_bootcamp_hosting" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.user_uuid
-  bucket_name = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  assets_path = var.assets_path
-  content_version = var.content_version
+  #bucket_name = var.bucket_name
+  public_path = var.bootcamp.public_path
+  content_version = var.bootcamp.content_version
 }
 
 resource "terratowns_home" "home" {
@@ -45,8 +43,27 @@ resource "terratowns_home" "home" {
 Here are some infographics that helped me understand some of the concepts 
 related to the topics covered in this bootcamp
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_bootcamp_hosting.domain_name
   #domain_name = "blahblah.cloudfront.net"
-  town = "missingo"
-  content_version = 1
+  town = "the-nomad-pad"
+  content_version = var.bootcamp.content_version
+}
+
+module "home_azure_hosting" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  #bucket_name = var.bucket_name
+  public_path = var.azure.public_path
+  content_version = var.azure.content_version
+}
+
+resource "terratowns_home" "home_azure" {
+  name = "Azure Networking Cookbook"
+  description = <<DESCRIPTION
+Here are some delicious Azure networking infographics!
+DESCRIPTION
+  domain_name = module.home_azure_hosting.domain_name
+  #domain_name = "blahblah.cloudfront.net"
+  town = "cooker-cove"
+  content_version = var.azure.content_version
 }
