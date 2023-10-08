@@ -1,6 +1,10 @@
 terratowns_endpoint="https://terratowns.cloud/api"
-bucket_name = "cyberinsight-terraform-bootcamp"
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
-content_version=1
+#bucket_name = "cyberinsight-terraform-bootcamp"
+bootcamp = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/bootcamp"
+  content_version = 1
+}
+azure = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/azure"
+  content_version = 1 
+}
